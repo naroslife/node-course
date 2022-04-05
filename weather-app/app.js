@@ -7,15 +7,15 @@ const argv = yargs(hideBin(process.argv)).command('<location>', "The location to
 const location = argv._[0]
 
 
-geocode(location, (error, data) => {
+geocode(location, (error, {latitude, longitude, location} = {}) => {
     if (error) {
         console.log(error);
     } else {
-        forecast(data.latitude, data.longitude, data.location, (error, response) => {
+        forecast(latitude, longitude, location, (error, response) => {
             if (error) {
                 return console.log(error);
             }
-            console.log(data.location);
+            console.log(location);
             console.log(response);
         })
 
