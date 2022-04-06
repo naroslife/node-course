@@ -35,8 +35,6 @@ app.get('', (req, res) => {
     })
 })
 
-
-
 app.get('/about', (req, res) => {
     res.render('about', {
         title: 'About',
@@ -45,10 +43,26 @@ app.get('/about', (req, res) => {
 })
 
 app.get('/weather', (req, res) => {
+    console.log(req.query);
     res.send({
         location: "Budapest",
         forecast: "Clear"
     })
+})
+
+app.get('products', (req, res) => {
+    res.send({
+        products: [] 
+    })
+})
+
+app.get('/help/*', (req, res) => {
+    res.render('404', {errorMessage: "Help article not found!", name: "Robert", title:"404"})
+})
+
+// * get has to come last
+app.get('*', (req, res) => {
+    res.render('404', {errorMessage: "Page not found!", name: "Robert", title:"404"})
 })
 
 const port = 3000

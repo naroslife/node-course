@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <link rel="stylesheet", href="/css/styles.css">
-        <script src="/js/app.js"></script>
-    </head>
 
-    <body>
-        {{>header}}
-        <h1>{{title}} Handlebars - from {{name}}</h1>
-    </body>
+<head>
+    <link rel="stylesheet" , href="/css/styles.css">
+    <link rel="icon" href="/img/favico.png">
+    <title>{{title}}</title>
+    <script src="/js/app.js"></script>
+</head>
+
+<body>
+    <div class="main-content">
+    {{>header}}
+    <p>{{title}} Handlebars - from {{name}}</p>
+
+    </div>
+
+    {{>footer}}
+</body>
+
 </html>
