@@ -1,0 +1,20 @@
+{
+  "name": "course",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "heroku-prebuild": "cd web-server && npm install",
+    "start": "cd web-server && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naroslife/node-course.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/naroslife/node-course/issues"
+  },
+  "homepage": "https://github.com/naroslife/node-course#readme"
+}
