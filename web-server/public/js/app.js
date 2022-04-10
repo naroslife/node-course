@@ -56,5 +56,7 @@ weatherForm.addEventListener('submit', (e) => {
         processLocation(`${pos.coords.longitude},${pos.coords.latitude}`)
       })
     }
+  } else {
+    processLocation(location)
   }
 })
