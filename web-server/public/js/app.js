@@ -1,4 +1,4 @@
-console.log('Client side javascript file loaded');
+console.log('Client side javascript file loaded')
 
 // fetch('http://puzzle.mead.io/puzzle').then((response) => {
 //     response.json().then((data) => {
@@ -7,12 +7,12 @@ console.log('Client side javascript file loaded');
 // })
 
 fetch('http://localhost:3000/weather?address=Boston').then((response) => {
-    response.json().then((data) => {
-        if (data.error) {
-            console.log("Error: " + data.error);
-        }
-        console.log("Forecast: " + data.forecast);
-    })
+  response.json().then((data) => {
+    if (data.error) {
+      console.log('Error: ' + data.error)
+    }
+    console.log('Forecast: ' + data.forecast)
+  })
 })
 
 const open = document.getElementById('open')
@@ -28,22 +28,33 @@ const searchElement = document.querySelector('input')
 const locationParagraph = document.getElementById('locationParagraph')
 const forecastParagraph = document.querySelector('#forecastParagraph') // same as above
 weatherForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const location = searchElement.value
+  e.preventDefault()
+  let location = searchElement.value
+  let processLocation = function (location) {
     forecastParagraph.textContent = ''
     locationParagraph.textContent = ''
     locationParagraph.className = 'loader'
     fetch(`/weather?address=${location}`).then((response) => {
-    response.json().then((data) => {
+      response.json().then((data) => {
         if (data.error) {
-            locationParagraph.className = ''
-            locationParagraph.textContent = data.error
-            forecastParagraph.textContent = ''
+          locationParagraph.className = ''
+          locationParagraph.textContent = data.error
+          forecastParagraph.textContent = ''
         } else {
-            locationParagraph.className = ''
-            locationParagraph.textContent = data.location
-            forecastParagraph.textContent = data.forecast
+          locationParagraph.className = ''
+          locationParagraph.textContent = data.location
+          forecastParagraph.textContent = data.forecast
         }
+      })
     })
-})
+  }
+  if (location.length === 0) {
+    if (window.navigator.geolocation) {
+      window.navigator.geolocation.getCurrentPosition((pos) => {
+          processLocation(`${pos.coords.longitude},${pos.coords.latitude}`)
+      }, (pos) => {
+        processLocation(`${pos.coords.longitude},${pos.coords.latitude}`)
+      })
+    }
+  }
 })
