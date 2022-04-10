@@ -15,6 +15,14 @@ fetch('http://localhost:3000/weather?address=Boston').then((response) => {
     })
 })
 
+const open = document.getElementById('open')
+const close = document.getElementById('close')
+const container = document.querySelector('.container')
+
+open.addEventListener('click', () => container.classList.add('show-nav'))
+
+close.addEventListener('click', () => container.classList.remove('show-nav'))
+
 const weatherForm = document.querySelector('form')
 const searchElement = document.querySelector('input')
 const locationParagraph = document.getElementById('locationParagraph')
