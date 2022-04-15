@@ -1,4 +1,5 @@
 const express = require('express')
+const mongoose = require('mongoose')
 require('../db/mongoose')
 const User = require('../models/user')
 const router = new express.Router()
@@ -97,10 +98,12 @@ router.patch('/users/:id', async (req, res) => {
     return res.status(400).send({ error: 'Invalid updates!' })
   }
   try {
-    const user = await User.findByIdAndUpdate(_id, req.body, {
-      new: true,
-      runValidators: true,
-    })
+    // This way the save middleware will run
+    const user = await User.findById(_id)
+    updates.forEach((update) => (user[update] = req.body[update]))
+    await user.save()
+    //This doesnt run the save middleware
+    // const user = await User.findByIdAndUpdate(_id, req.body, { new: true, runValidators: true, })
     if (!user) return res.status(404).send()
     res.send(user)
   } catch (error) {
