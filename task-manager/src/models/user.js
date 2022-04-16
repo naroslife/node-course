@@ -60,9 +60,7 @@ userSchema.pre('save', async function (next) {
 
 // Add static function to schema
 userSchema.statics.findByCredentials = async (email, password) => {
-  console.log(email, password)
   const user = await User.findOne({ email })
-  console.log(user)
   if (!user) {
     throw new Error('Unable to login!')
   }
@@ -80,6 +78,23 @@ userSchema.methods.generateAuthToken = async function () {
   await user.save()
   return token
 }
+
+userSchema.methods.getPublicProfile = function () {
+  const userObject = this.toObject()
+  delete userObject.password
+  delete userObject.tokens
+  return userObject
+}
+
+userSchema.methods.toJSON = function () {
+  return this.getPublicProfile()
+}
+
+userSchema.virtual('tasks', {
+  ref: 'Task',
+  localField: '_id',
+  foreignField: 'owner',
+})
 
 const User = mongoose.model('User', userSchema)
 module.exports = User
