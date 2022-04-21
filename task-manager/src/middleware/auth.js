@@ -4,7 +4,7 @@ const User = require('../models/user')
 async function auth(req, res, next) {
   try {
     const token = req.header('Authorization').split(' ')[1]
-    const decoded = jsonwebtoken.verify(token, 'mysecret')
+    const decoded = jsonwebtoken.verify(token, process.env.SECRET)
     const user = await User.findOne({ _id: decoded._id, 'tokens.token': token })
 
     if (!user) {

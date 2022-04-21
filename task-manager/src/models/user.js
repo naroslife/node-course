@@ -85,7 +85,10 @@ userSchema.statics.findByCredentials = async (email, password) => {
 // Add method
 userSchema.methods.generateAuthToken = async function () {
   const user = this
-  const token = jsonwebtoken.sign({ _id: user._id.toString() }, 'mysecret')
+  const token = jsonwebtoken.sign(
+    { _id: user._id.toString() },
+    process.env.SECRET
+  )
   user.tokens = user.tokens.concat({ token })
   await user.save()
   return token
