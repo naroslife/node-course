@@ -18,24 +18,24 @@
 // 4. Test your work!
 
 const add = (x, y, callback) => {
-  setTimeout(() => {
-    callback(x + y)
-  }, 2000)
-}
+    setTimeout(() => {
+        callback(x + y);
+    }, 2000);
+};
 add(1, 4, (sum) => {
-  console.log(sum) // Should print: 5
-})
+    console.log(sum); // Should print: 5
+});
 
 const doWorkCallback = (callback) => {
-  setTimeout(() => {
-    // callback('My error')
-    callback(undefined, 'Success!')
-  }, 2000)
-}
+    setTimeout(() => {
+        // callback('My error')
+        callback(undefined, 'Success!');
+    }, 2000);
+};
 
 doWorkCallback((error, result) => {
-  if (error) {
-    return console.error(error)
-  }
-  console.log(result)
-})
+    if (error) {
+        return console.error(error);
+    }
+    console.log(result);
+});

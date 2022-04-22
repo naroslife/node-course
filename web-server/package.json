@@ -1,23 +1,23 @@
 {
-  "name": "web-server",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node src/app.js",
-    "dev": "nodemon src/app.js -e js,hbs,css",
-    "sass:compile": "node-sass --include-path sass styles.sass OUTPUT_FILE.css"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.16.4",
-    "hbs": "^4.0.1",
-    "request": "^2.88.2"
-  },
-  "devDependencies": {
-    "node-sass": "^7.0.1",
-    "nodemon": "^2.0.15"
-  }
+    "name": "web-server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node src/app.js",
+        "dev": "nodemon src/app.js -e js,hbs,css",
+        "sass:compile": "node-sass --include-path sass styles.sass OUTPUT_FILE.css"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.16.4",
+        "hbs": "^4.0.1",
+        "request": "^2.88.2"
+    },
+    "devDependencies": {
+        "node-sass": "^7.0.1",
+        "nodemon": "^2.0.15"
+    }
 }

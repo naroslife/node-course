@@ -5,17 +5,17 @@ const weatherBaseURL = 'http://api.weatherstack.com/';
 const url = `${weatherBaseURL}/current?access_key=${weatherApiKey}&query=40,-75`;
 
 const request = http.request(url, (response) => {
-    let data = ''
+    let data = '';
     response.on('data', (chunk) => {
-        data = data + chunk.toString()
-    })
+        data = data + chunk.toString();
+    });
 
     response.on('end', () => {
-        const body = JSON.parse(data)
+        const body = JSON.parse(data);
         console.log(body);
-    })
-})
+    });
+});
 request.on('error', (error) => {
     console.log('Error: ', error);
-})
-request.end()
+});
+request.end();

@@ -11,7 +11,7 @@
         "region": "Budapest",
         "lat": "47.500",
         "lon": "19.083",
-        "timezone_id": "Europe\/Budapest",
+        "timezone_id": "Europe/Budapest",
         "localtime": "2022-04-04 20:19",
         "localtime_epoch": 1649103540,
         "utc_offset": "2.0"
@@ -21,11 +21,9 @@
         "temperature": 6,
         "weather_code": 113,
         "weather_icons": [
-            "https:\/\/assets.weatherstack.com\/images\/wsymbols01_png_64\/wsymbol_0008_clear_sky_night.png"
+            "https://assets.weatherstack.com/images/wsymbols01_png_64/wsymbol_0008_clear_sky_night.png"
         ],
-        "weather_descriptions": [
-            "Clear"
-        ],
+        "weather_descriptions": ["Clear"],
         "wind_speed": 7,
         "wind_degree": 180,
         "wind_dir": "S",
