@@ -1,8 +1,6 @@
 const mongoose = require('mongoose')
 
-const connectionURL = 'mongodb://127.0.0.1:27017'
-const databaseName = 'task-manager'
-mongoose.connect(connectionURL + '/task-manager-api')
+mongoose.connect(process.env.MONGODB_URL)
 
 // const me = new User({
 //   name: 'Robert',
