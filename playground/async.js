@@ -1,17 +1,17 @@
-function sleep(milliseconds) {
-    const date = Date.now();
-    let currentDate = null;
+function sleep (milliseconds,) {
+    const date = Date.now()
+    let currentDate = null
     do {
-        currentDate = Date.now();
-    } while (currentDate - date < milliseconds);
+        currentDate = Date.now()
+    } while (currentDate - date < milliseconds)
 }
 
-console.log('start');
+console.log('start',)
 
 setTimeout(() => {
-    console.log('zero timer');
-}, 0);
+    console.log('zero timer',)
+}, 0,)
 
-sleep(2000);
+sleep(2000,)
 
-console.log('stop');
+console.log('stop',)

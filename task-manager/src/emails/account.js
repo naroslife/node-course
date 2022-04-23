@@ -1,7 +1,7 @@
-const sgMail = require('@sendgrid/mail');
+const sgMail = require('@sendgrid/mail')
 
-const apiKey = process.env.SENDGRID_API_KEY;
-sgMail.setApiKey(apiKey);
+const apiKey = process.env.SENDGRID_API_KEY
+sgMail.setApiKey(apiKey)
 
 function sendWelcomeEmail(toEmail, name) {
     sgMail
@@ -12,11 +12,11 @@ function sendWelcomeEmail(toEmail, name) {
             text: `Welcome to Task Manager, ${name}!`,
         })
         .then((result) => {
-            console.log('email sent');
+            console.log('email sent')
         })
         .catch((err) => {
-            console.log('email not sent', err);
-        });
+            console.log('email not sent', err)
+        })
 }
 
 function sendGoodbyeEmail(toEmail, name) {
@@ -25,7 +25,7 @@ function sendGoodbyeEmail(toEmail, name) {
         from: 'robi54321@gmail.com',
         subject: 'Goodbye!',
         text: `Goodbye ${name} from Task Manager!`,
-    });
+    })
 }
 
-module.exports = { sendWelcomeEmail, sendGoodbyeEmail };
+module.exports = { sendWelcomeEmail, sendGoodbyeEmail }

@@ -17,25 +17,25 @@
 // 3. After 2 seconds are up, call the callback function with the sum
 // 4. Test your work!
 
-const add = (x, y, callback) => {
+const add = (x, y, callback,) => {
     setTimeout(() => {
-        callback(x + y);
-    }, 2000);
-};
-add(1, 4, (sum) => {
-    console.log(sum); // Should print: 5
-});
+        callback(x + y,)
+    }, 2000,)
+}
+add(1, 4, (sum,) => {
+    console.log(sum,) // Should print: 5
+},)
 
-const doWorkCallback = (callback) => {
+const doWorkCallback = (callback,) => {
     setTimeout(() => {
-        // callback('My error')
-        callback(undefined, 'Success!');
-    }, 2000);
-};
+    // callback('My error')
+        callback(undefined, 'Success!',)
+    }, 2000,)
+}
 
-doWorkCallback((error, result) => {
+doWorkCallback((error, result,) => {
     if (error) {
-        return console.error(error);
+        return console.error(error,)
     }
-    console.log(result);
-});
+    console.log(result,)
+},)

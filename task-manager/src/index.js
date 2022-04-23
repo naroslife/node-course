@@ -1,10 +1,10 @@
-const express = require('express');
-const userRouter = require('./routers/user');
-const taskRouter = require('./routers/task');
+const express = require('express')
+const userRouter = require('./routers/user')
+const taskRouter = require('./routers/task')
 
-app = express();
-const port = process.env.PORT;
-const maintenance = false;
+const app = express()
+const port = process.env.PORT
+const maintenance = false
 
 // Setup middleware to run between request and route handler
 // app.use((req, res, next) => {
@@ -17,22 +17,22 @@ const maintenance = false;
 
 app.use((req, res, next) => {
     if (maintenance) {
-        res.status(503).send('Under maintenance');
+        res.status(503).send('Under maintenance')
     } else {
-        next();
+        next()
     }
-});
+})
 
-const multer = require('multer');
-const upload = multer({ dest: 'images' });
+const multer = require('multer')
+const upload = multer({ dest: 'images' })
 app.post('/upload', upload.single('upload'), (req, res) => {
-    res.send();
-});
+    res.send()
+})
 
-app.use(express.json());
-app.use(userRouter);
-app.use(taskRouter);
+app.use(express.json())
+app.use(userRouter)
+app.use(taskRouter)
 
 app.listen(port, () => {
-    console.log('Server is up on port ' + port);
-});
+    console.log('Server is up on port ' + port)
+})

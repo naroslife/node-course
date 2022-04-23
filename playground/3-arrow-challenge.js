@@ -20,9 +20,9 @@ const tasks = {
             completed: false,
         },
     ],
-    getTasksToDo() {
-        return this.tasks.filter((task) => !task.completed);
+    getTasksToDo () {
+        return this.tasks.filter((task,) => !task.completed,)
     },
-};
+}
 
-console.log(tasks.getTasksToDo());
+console.log(tasks.getTasksToDo(),)

@@ -4,10 +4,10 @@
 // const MongoClient = mongodb.MongoClient
 // const ObjectID = mongodb.ObjectId
 
-const { MongoClient, ObjectId } = require('mongodb');
+const { MongoClient, ObjectId } = require('mongodb')
 
-const connectionURL = 'mongodb://127.0.0.1:27017';
-const databaseName = 'task-manager';
+const connectionURL = 'mongodb://127.0.0.1:27017'
+const databaseName = 'task-manager'
 
 // const id = new ObjectId()
 // console.log(id.getTimestamp())
@@ -17,10 +17,10 @@ MongoClient.connect(
     { useNewUrlParser: true },
     (error, client) => {
         if (error) {
-            return console.log('Failed to connect to MongoDB: ' + error);
+            return console.log('Failed to connect to MongoDB: ' + error)
         }
-        console.log('Connected to MongoDB!');
-        const db = client.db(databaseName);
+        console.log('Connected to MongoDB!')
+        const db = client.db(databaseName)
 
         // db.collection('users').insertMany(
         //   [
@@ -107,6 +107,6 @@ MongoClient.connect(
         db.collection('users')
             .deleteMany({ age: 27 })
             .then(console.log)
-            .catch(console.log);
+            .catch(console.log)
     }
-);
+)
