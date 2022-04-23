@@ -8,7 +8,6 @@ function getNotes() {
 function addNote(title, body) {
     const notesArray = loadNotes()
     const duplicate = notesArray.find((note) => note.title === title)
-    debugger
     if (!duplicate) {
         notesArray.push({
             title,

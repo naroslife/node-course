@@ -11,7 +11,7 @@ function sendWelcomeEmail(toEmail, name) {
             subject: 'Welcome',
             text: `Welcome to Task Manager, ${name}!`,
         })
-        .then((result) => {
+        .then(() => {
             console.log('email sent')
         })
         .catch((err) => {
