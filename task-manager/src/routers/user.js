@@ -230,6 +230,7 @@ router.post(
         await req.user.save()
         res.send()
     },
+    // eslint-disable-next-line no-unused-vars
     (error, req, res, next) => {
         res.status(400).send({ error: error.message })
     }

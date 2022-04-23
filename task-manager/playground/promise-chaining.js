@@ -16,6 +16,7 @@ const id = '62546aaa46602e7c11a45d50'
 //   })
 
 const updateAgeAndCount = async (id, age) => {
+    // eslint-disable-next-line no-unused-vars
     const user = await User.findByIdAndUpdate(id, { age })
     const count = await User.countDocuments({ age })
     return count
